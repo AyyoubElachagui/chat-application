@@ -22,6 +22,6 @@ Route::post('/login', [AuthController::class, 'loginUser']);
 Route::group(['middleware' => ['auth:api']], function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/friends', [UserController::class, 'getAllUser']);
+    Route::get('/users', [UserController::class, 'getAllUser']);
     
 });
