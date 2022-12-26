@@ -26,22 +26,18 @@
           </nav>
         </div>
       </div>
-      <main>
-        <div class="relative px-6 lg:px-8">
-          <div class="mx-auto pt-20 pb-32 sm:pt-48 sm:pb-40">
-            <div>
-                {{ user.name }} <br>
-                {{ user.email }}
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-    
-    </template>
-    <script>
+      
+      <UsersBar />
+    </div> 
+</template>
+<script>
+  import UsersBar from "./home/UsersBar.vue"
+
     export default {
         name: "HomeComponent",
+        components: {
+          UsersBar,
+        },
         data(){
             return {
                 user: this.$store.state.auth.user
@@ -54,4 +50,4 @@
             }
         }
     }
-    </script>
+</script>
