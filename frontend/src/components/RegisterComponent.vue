@@ -10,8 +10,8 @@
                 <div class="-space-y-px rounded-md shadow-sm">
                     <div>
                         <label for="username" class="sr-only">Username</label>
-                        <Field id="username" name="username" type="email" autocomplete="username" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Username" />
-                        <ErrorMessage name="username" class="error-msg" />
+                        <Field id="username" name="name" type="email" autocomplete="username" required class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Username" />
+                        <ErrorMessage name="name" class="error-msg" />
                     </div>
                     <div>
                         <label for="email-address" class="sr-only">Email address</label>
@@ -73,11 +73,11 @@ export default {
     },
     data() {
         const schema = yup.object().shape({
-        // username: yup
-        //     .string()
-        //     .required("Username is required!")
-        //     .min(3, "Must be at least 3 characters!")
-        //     .max(20, "Must be maximum 20 characters!"),
+        name: yup
+            .string()
+            .required("Username is required!")
+            .min(3, "Must be at least 3 characters!")
+            .max(20, "Must be maximum 20 characters!"),
         email: yup
             .string()
             .required("Email is required!")
@@ -104,13 +104,11 @@ export default {
     },
     mounted() {
         if (this.loggedIn) {
-            this.$router.push("/profile");
+            this.$router.push("/home");
         }
     },
     methods: {
         handleRegister(user) {
-            this.message = "";
-            this.successful = false;
             this.loading = true;
 
             this.$store.dispatch("auth/register", user).then(
@@ -118,6 +116,7 @@ export default {
                     this.message = data.message;
                     this.successful = true;
                     this.loading = false;
+                    this.$router.push("/home");
                 },
                 (error) => {
                     this.message =

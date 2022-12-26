@@ -12,7 +12,7 @@ class AuthService {
             })
             .then(response => {
                 if (response.data.token) {
-                    localStorage.setItem('user', JSON.stringify(response.data));
+                  this.storageAddItems(response.data)
                 }
                 return response.data;
             });
@@ -20,24 +20,36 @@ class AuthService {
 
   logout() {
     userService.logout();
-    localStorage.removeItem('user');
+    this.storageRemoveItems();
   }
 
 
   register(user) {
     return axios.post(API_URL + 'register', {
-      name: user.username,
+      name: user.name,
       email: user.email,
       password: user.password
     })
     .then(response => {
       if (response.data.token) {
-        localStorage.setItem('user', JSON.stringify(response.data));
+        this.storageAddItems(response.data)
       }
 
       return response.data;
     });
   }
+
+  storageAddItems(data){
+
+    localStorage.setItem('user', JSON.stringify(data.user));
+    localStorage.setItem('token', JSON.stringify(data.token));
+  }
+
+  storageRemoveItems(){
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+  }
+
 }
 
 export default new AuthService();
