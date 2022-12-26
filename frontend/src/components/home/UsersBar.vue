@@ -6,11 +6,12 @@
         <div class="col-span-4 bg-white shadow rounded">
         </div>
         <div class="bg-white shadow rounded p-4 flex flex-col-reverse">
-            <div v-for="n in 5" :key="n" class="rounded shadow-md">
+            <div v-for="n in this.$store.state.user.users" :key="n" class="rounded shadow-md h-16 my-2">
                 <div>
                     <UserBarCards :bg_color="generator()" :position="n" style="background: {{color}}"/>
                 </div>
             </div>
+            {{  }}
         </div>
     </div>
 </template>
@@ -23,6 +24,9 @@ export default {
         return {
             color: "#000"
         }
+    },
+    created() {
+        this.$store.dispatch('user/getAllUsers');
     },
     components: {
         UserBarCards

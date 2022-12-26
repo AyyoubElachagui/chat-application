@@ -1,6 +1,6 @@
 <template>
     <div>
-        tests {{ pos }}
+        tests {{ pos.name }}
     </div>
 </template>
 
