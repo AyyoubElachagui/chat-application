@@ -1,10 +1,10 @@
-import { data } from "jquery"
 import UserService from "../services/user.service"
 
 export const user = {
     namespaced: true,
     state: {
-      users: null
+      users: null,
+      messages: []
     },
     actions: {
         getAllUsers({commit}){
@@ -17,11 +17,20 @@ export const user = {
               console.log(error)
             }
           )
+        },
+        addNewMessage({commit}, message){
+          commit('addNewMessageToList', message);
+          return Promise.resolve(message);
         }
     },
     mutations: {
       getUsersSuccess(state, users){
         state.users = users
+      },
+      addNewMessageToList(state, messages){
+        state.messages.push(messages)
+        console.log('old messages : ', state.messages)
+        console.log('new messages : ', messages)
       }
     }
 }
