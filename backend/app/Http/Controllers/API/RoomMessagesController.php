@@ -35,6 +35,9 @@ class RoomMessagesController extends Controller
                 'status' => true,
                 'message' => 'User Created Successfully',
                 'data' => RoomMessages::select(
+                    "room_messages.id",
+                    "room_messages.user_id",
+                    "room_messages.created_at",
                     "room_messages.text", 
                     "users.name",
                 )
@@ -56,6 +59,9 @@ class RoomMessagesController extends Controller
         return response()->json([
             'status' => true,
             'data' => RoomMessages::select(
+                "room_messages.id",
+                "room_messages.user_id",
+                "room_messages.created_at",
                 "room_messages.text", 
                 "users.name",
             )
