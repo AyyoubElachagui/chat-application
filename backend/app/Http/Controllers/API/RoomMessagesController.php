@@ -53,13 +53,16 @@ class RoomMessagesController extends Controller
     }
 
     public function getAllMessages(){
-        return RoomMessages::select(
-            "room_messages.text", 
-            "users.name",
-        )
-        ->join("users", "users.id", "=", "room_messages.user_id")
-        ->orderBy("room_messages.created_at", "desc")
-        ->get()
-        ->toArray();
+        return response()->json([
+            'status' => true,
+            'data' => RoomMessages::select(
+                "room_messages.text", 
+                "users.name",
+            )
+            ->join("users", "users.id", "=", "room_messages.user_id")
+            ->orderBy("room_messages.created_at", "desc")
+            ->get()
+            ->toArray()
+        ], 200);
     }
 }

@@ -15,8 +15,8 @@ class UserService {
     return axios.post(API_URL + 'logout', { headers: authHeader() });
   }
 
-  getRecepients() {
-    return axios.get(API_URL + 'recepients', { headers: authHeader() });
+  loadAllMessages() {
+    return axios.get(API_URL + 'message', { headers: authHeader() });
   }
 
   getAdminBoard() {
