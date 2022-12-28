@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\RoomMessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/users', [UserController::class, 'getAllUser']);
+    Route::post('/message', [RoomMessagesController::class, 'createNewMessage']);
+    Route::get('/messages', [RoomMessagesController::class, 'getAllMessages']);
     
 });
