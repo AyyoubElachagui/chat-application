@@ -4,10 +4,10 @@
             hello
         </div> -->
         <div class="bg-white shadow-md rounded border-2 relative">
-            <div class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mt-4" style="height: 60vh;">
-                <div v-for="n in this.$store.state.user.messages" :key="n">
+            <div class="flex flex-col-reverse space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch mt-4" style="height: 60vh;">
+                <div v-for="message in this.$store.state.user.messages[0]" :key="message.id">
                     <div>
-                        <UserBarCards :_message="n" :_isUser="true" />
+                        <UserBarCards :_message="message" :_isUser="message.user_id == this.$store.state.auth.user.id" />
                     </div>
                 </div>
             </div>

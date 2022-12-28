@@ -25,7 +25,10 @@ export default {
             if(this.message === ''){
             toast.warning("Please write something before send your message!");
             }
-            this.$store.dispatch('user/addNewMessage', this.message)
+            this.$store.dispatch('user/addNewMessage', {
+                user_id: this.$store.state.auth.user.id,
+                text: this.message
+            })
             this.message = "";
         }
     }

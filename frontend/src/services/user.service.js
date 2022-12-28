@@ -16,11 +16,17 @@ class UserService {
   }
 
   loadAllMessages() {
-    return axios.get(API_URL + 'message', { headers: authHeader() });
+    return axios.get(API_URL + 'messages', { headers: authHeader() })
+    .then(res => {
+      return res.data.data
+    });
   }
 
-  getAdminBoard() {
-    return axios.get(API_URL + 'admin', { headers: authHeader() });
+  addNewMessage(data) {
+    return axios.post(API_URL + 'message', data, { headers: authHeader() })
+    .then(res => {
+      return res.data.data
+    });
   }
 }
 

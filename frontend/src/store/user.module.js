@@ -12,25 +12,38 @@ export const user = {
             users => {
               commit('getUsersSuccess', users);
               return Promise.resolve(users);
-            },
-            error => {
-              console.log(error)
             }
           )
         },
         addNewMessage({commit}, message){
-          commit('addNewMessageToList', message);
-          return Promise.resolve(message);
+          UserService.addNewMessage(message).then(
+            messages => {
+              console.log('----------------------------------- addNewMessage')
+              console.log(messages)
+              commit('getAllMessages', messages);
+              return Promise.resolve(messages);
+            }
+          )
+        },
+        loadAllMessages({commit}){
+          UserService.loadAllMessages().then(
+            messages => {
+              commit('getAllMessages', messages);
+              return Promise.resolve(messages);
+            }
+          )
         }
     },
     mutations: {
       getUsersSuccess(state, users){
         state.users = users
       },
+      getAllMessages(state, messages){
+        state.messages.splice(0)
+        state.messages.push(messages)
+      },
       addNewMessageToList(state, messages){
         state.messages.push(messages)
-        console.log('old messages : ', state.messages)
-        console.log('new messages : ', messages)
       }
     }
 }

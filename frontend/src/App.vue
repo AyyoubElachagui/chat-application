@@ -1,14 +1,14 @@
 <template>
-  
   <router-view />
-  <div class="container">
-  </div>
 </template>
 
 <script>
 
 export default {
   name: 'App',
+  created(){
+    this.$store.dispatch("user/loadAllMessages");
+  }
 }
 </script>
 
