@@ -13,6 +13,24 @@
 <script>
 import { useToast } from 'vue-toastification'
 const toast = useToast()
+
+
+import Pusher from 'pusher-js';
+// Pusher.logToConsole = true;
+
+var pusher = new Pusher('b5a9d6b6cbf97562584f', {
+
+  cluster: 'mt1',
+  
+  wsPort: 6001,
+  wssPort: 6001,
+    wsHost: 'http://127.0.0.1',
+    wssHost: 'http://127.0.0.1',
+    authEndpoint: 'http://127.0.0.1/broadcasting/auth',
+    forceTLS: true
+});
+
+
 export default {
     name: "MessageForm",
     data(){
@@ -29,6 +47,12 @@ export default {
                 user_id: this.$store.state.auth.user.id,
                 text: this.message
             })
+            
+            var channel = pusher.subscribe('testchannel');
+            channel.bind('testchannel', function(data) {
+                    console.log("------------------------------------------------- subscribe")
+                    console.log(data);
+                });
             this.message = "";
         }
     }

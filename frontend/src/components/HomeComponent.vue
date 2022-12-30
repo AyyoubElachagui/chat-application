@@ -38,6 +38,9 @@
         components: {
           UsersBar,
         },
+        created(){
+          this.$store.dispatch("user/loadAllMessages");
+        },
         data(){
             return {
                 user: this.$store.state.auth.user
