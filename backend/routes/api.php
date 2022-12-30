@@ -28,3 +28,11 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/messages', [RoomMessagesController::class, 'getAllMessages']);
     
 });
+
+
+
+
+Route::get('test', function () {
+    event(new App\Events\Test());
+    return event(new App\Events\Test());
+});

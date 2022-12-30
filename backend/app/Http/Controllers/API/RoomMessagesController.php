@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\RoomMessages;
+use App\Events\Test;
 
 class RoomMessagesController extends Controller
 {
@@ -30,6 +31,8 @@ class RoomMessagesController extends Controller
                 'user_id' => $request->user_id,
                 'text' => $request->text
             ]);
+            
+            broadcast(new Test());
 
             return response()->json([
                 'status' => true,

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Broadcast;
 
+use App\Events\Test;
+
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -12,6 +14,9 @@ use Illuminate\Support\Facades\Broadcast;
 | used to check if an authenticated user can listen to the channel.
 |
 */
+
+// This is only for testing purposes
+Broadcast::channel('testchannel', Test::class); 
 
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
