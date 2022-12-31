@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\RoomMessages;
+use App\Events\MessagePublished;
+use App\Events\WebSocketMessageEvent;
 
 class RoomMessagesController extends Controller
 {
@@ -30,7 +32,8 @@ class RoomMessagesController extends Controller
                 'user_id' => $request->user_id,
                 'text' => $request->text
             ]);
-
+            
+            broadcast(new WebSocketMessageEvent($request->text));
             return response()->json([
                 'status' => true,
                 'message' => 'User Created Successfully',

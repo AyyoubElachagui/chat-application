@@ -4,6 +4,7 @@ export default function authHeader() {
 
     if (token) {
       return {
+        "Access-Control-Allow-Origin": "*",
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
       }; // for Spring Boot back-end

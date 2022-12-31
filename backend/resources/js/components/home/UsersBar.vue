@@ -35,7 +35,13 @@ export default {
         }
     },
     created() {
+        
+        window.Echo.channel('message-now')
+        .listen('WebSocketMessageEvent', (e) => {
+            this.$store.dispatch("user/loadAllMessages")
+        })
         this.$store.dispatch('user/getAllUsers');
+        this.$store.dispatch("user/loadAllMessages");
     },
     components: {
         UserBarCards,

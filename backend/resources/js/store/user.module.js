@@ -18,8 +18,6 @@ export const user = {
         addNewMessage({commit}, message){
           UserService.addNewMessage(message).then(
             messages => {
-              console.log('----------------------------------- addNewMessage')
-              console.log(messages)
               commit('getAllMessages', messages);
               return Promise.resolve(messages);
             }
