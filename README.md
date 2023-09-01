@@ -1,6 +1,19 @@
-<img src="/signin-page.png" width="100%" alt="El achagui">
+<div style="background-color: #0a4eff; padding: 10px; margin-bottom: 10px">
+    <h3 style="color: white;">Sign in Page</h3>
+    <img src="/signin-page.png" width="100%" alt="El achagui">
+</div>
+<div style="background-color: #0a4eff; padding: 10px; margin-bottom: 10px">
+    <h3 style="color: white;">Sign up Page</h3>
 <img src="/signup-page.png" width="100%" alt="Ayyoub">
-<img src="/chat-screen-page.png" width="100%" alt="Ayyoub El achagui">
+</div>
+<div style="background-color: #0a4eff; padding: 10px; margin-bottom: 10px">
+    <h3 style="color: white;">chat Page</h3>
+    <img src="/chat-screen-page.png" width="100%" alt="Ayyoub El achagui">
+</div>
+<p>Clone this repository then run all this command</P>
+
+<h5>email for test : jaeden.lowe@example.com</h5>
+<h5>password : password</h5>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
