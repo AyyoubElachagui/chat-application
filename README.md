@@ -1,4 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="/signin-page.png" width="100%" alt="Laravel Logo"></a></p>
+<img src="/signin-page.png" width="100%" alt="El achagui">
+<img src="/signup-page.png" width="100%" alt="Ayyoub">
+<img src="/chat-screen-page.png" width="100%" alt="Ayyoub El achagui">
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
