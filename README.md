@@ -20,7 +20,7 @@
 <h3>Clone this repository then run all this command</h3>
 <h5>1 - composer install</h5>
 <h5>2 - npm install</h5>
-<h5>3 - cp .env.example .env (
+<h5>3 - cp .env.example .env <br>(
     <br/> 
     *** update .env file *** 
     <br/>
@@ -36,10 +36,9 @@
  )</h5>
 <h5>4 - php artisan migrate</h5>
 <h5>5 - php artisan db:seed //to add random users & messages</h5>
-<h5>6 - </h5>
-<h5>7 - php artisan serve</h5>
-<h5>8 - php artisan websocket:serve</h5>
-<h5>9 - npm run dev</h5>
+<h5>6 - php artisan serve</h5>
+<h5>7 - php artisan websocket:serve</h5>
+<h5>8 - npm run dev</h5>
 <hr>
 <p align="center">link to my portfolio : <a href="elachagui.com" target="_blanck">elachagui.com</a></p>
 
